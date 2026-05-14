@@ -99,8 +99,36 @@ export const modulesApi = {
 
 export const lessonsApi = {
   getOne: (lessonId: string) => apiFetch<Lesson>(`/lessons/${lessonId}`),
+  getQuizzes: (lessonId: string) => apiFetch<Quiz[]>(`/lessons/${lessonId}/quizzes`),
 };
 
+
+export const adminApi = {
+  createModule: (body: { title: string; description?: string; icon?: string }) =>
+    apiFetch<Module>('/admin/modules', { method: 'POST', body: JSON.stringify(body) }),
+  updateModule: (id: string, body: { title?: string; description?: string; icon?: string }) =>
+    apiFetch<Module>(`/admin/modules/${id}`, { method: 'PATCH', body: JSON.stringify(body) }),
+  deleteModule: (id: string) =>
+    apiFetch<void>(`/admin/modules/${id}`, { method: 'DELETE' }),
+
+  createLesson: (body: { title: string; content: string; orderNumber: number; moduleId: string }) =>
+    apiFetch<Lesson>('/admin/lessons', { method: 'POST', body: JSON.stringify(body) }),
+  updateLesson: (id: string, body: { title?: string; content?: string; orderNumber?: number }) =>
+    apiFetch<Lesson>(`/admin/lessons/${id}`, { method: 'PATCH', body: JSON.stringify(body) }),
+  deleteLesson: (id: string) =>
+    apiFetch<void>(`/admin/lessons/${id}`, { method: 'DELETE' }),
+
+  createQuiz: (body: {
+    question: string;
+    explanation?: string;
+    orderNumber: number;
+    points: number;
+    lessonId: string;
+    options: { optionText: string; isCorrect: boolean }[];
+  }) => apiFetch<Quiz>('/admin/quizzes', { method: 'POST', body: JSON.stringify(body) }),
+  deleteQuiz: (id: string) =>
+    apiFetch<void>(`/admin/quizzes/${id}`, { method: 'DELETE' }),
+};
 
 export const submissionsApi = {
   submit: (

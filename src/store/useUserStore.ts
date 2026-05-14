@@ -42,6 +42,8 @@ export const useUserStore = create<UserState>()(
       name: "littlestep-user",
       partialize: (state) => ({
         accessToken: state.accessToken,
+        user: state.user,
+        activeChild: state.activeChild,
       }),
 
       onRehydrateStorage: () => (state) => {
