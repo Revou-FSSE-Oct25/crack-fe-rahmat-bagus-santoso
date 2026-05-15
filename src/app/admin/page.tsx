@@ -210,9 +210,11 @@ export default function AdminPage() {
             <div className="space-y-2">
               {modules.map((mod) => (
                 <div key={mod.id} className="bg-white border border-slate-100 rounded-2xl px-4 py-3 flex items-center gap-3">
-                  <div className="w-8 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 overflow-hidden">
                     {mod.icon
-                      ? <span className="text-2xl">{mod.icon}</span>
+                      ? /\.|\/|^http/.test(mod.icon)
+                        ? <img src={mod.icon} alt={mod.title} className="w-8 h-8 object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                        : <span className="text-2xl leading-none">{mod.icon}</span>
                       : <BookOpen size={20} className="text-slate-400" />
                     }
                   </div>
