@@ -12,6 +12,13 @@ A micro-learning app built around a theme park concept for children aged 4–10.
 - **Zustand** — state management (auth & quiz session)
 - **Fetch API** with a custom wrapper (`lib/api.ts`)
 
+## Deployment
+
+- Backend API: [LittleStep API](https://enchanting-harmony-production-0f83.up.railway.app/)
+- Frontend App:[Frontend](https://crack-fe-rahmat-bagus-santoso.vercel.app/)
+- API Documentation: [Swagger](https://enchanting-harmony-production-0f83.up.railway.app/api/docs)
+
+
 ## Setup
 
 ```bash
