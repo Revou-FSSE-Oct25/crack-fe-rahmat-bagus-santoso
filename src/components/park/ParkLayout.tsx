@@ -6,8 +6,8 @@ import type { Module, ModuleProgress } from "@/types/types";
 
 
 const PARK_SLOTS = [
-  { x: 50, y: 26 },
-  { x: 62, y: 30 },
+  { x: 52, y: 15.6 },
+  { x: 71.5, y: 22.3 },
   { x: 74, y: 48 },
   { x: 68, y: 67 },
   { x: 50, y: 74 },
