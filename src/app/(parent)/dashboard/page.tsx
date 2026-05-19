@@ -69,7 +69,7 @@ export default function DashboardPage() {
     } catch {
       setActiveChild(child);
     }
-    router.push("/park");
+    router.push("/avatar");
   };
 
   const handleLogout = () => { logout(); router.push("/login"); };

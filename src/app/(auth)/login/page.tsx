@@ -29,7 +29,7 @@ export default function LoginPage() {
       if (user.role === "ADMIN") {
         router.push("/admin");
       } else {
-        router.push("/avatar");
+        router.push("/dashboard");
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login gagal");
